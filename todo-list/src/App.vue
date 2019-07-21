@@ -8,7 +8,7 @@
     <div id="todolist">
       <div>
         <ol v-show="list.length">
-          <li v-for="item in list" :key="item.id">
+          <li v-for="item in filterItem" :key="item.id">
             <div>
               <input type="checkbox" v-model="item.isfinished"/>
               <label :class="item.isfinished ? 'finishedItem' : 'todoItem'">{{item.title}}</label>
@@ -18,6 +18,13 @@
       </div>
     </div>
 
+    <div>
+      <ButtonGroup>
+        <Button class="statusbtn" @click="changeStatus(1)">All</button>
+        <Button class="statusbtn" @click="changeStatus(2)">Active</Button>
+        <Button class="statusbtn" @click="changeStatus(3)">Complete</Button>
+      </ButtonGroup>
+    </div>
   </div>
 </template>
 
@@ -25,14 +32,20 @@
   export default {
     name: 'app',
     computed: {
-
+      filterItem: function(){
+        if(this.status === 2){
+          return this.list.filter(item => !item.isfinished)
+        } else if(this.status === 3){
+          return this.list.filter(item => item.isfinished)
+        }
+        return this.list
+      }
     },
 
     data() {
       return {
         todo: '',
         list: [],
-        listname: '',
         status: 1
       }
     },
@@ -49,6 +62,10 @@
           })
         }
         this.todo=''
+      },
+
+      changeStatus: function(status){
+        this.status = status
       }
     }
   }
