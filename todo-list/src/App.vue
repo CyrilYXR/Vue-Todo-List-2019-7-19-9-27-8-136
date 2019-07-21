@@ -11,7 +11,10 @@
           <li v-for="item in filterItem" :key="item.id">
             <div>
               <input type="checkbox" v-model="item.isfinished"/>
-              <label :class="item.isfinished ? 'finishedItem' : 'todoItem'">{{item.title}}</label>
+              <label :class="item.isfinished ? 'finishedItem' : 'todoItem'"
+                v-show="!item.editable" @dblclick="enableEdit(item)">{{item.title}}</label>
+              <input type="text" v-model="item.title" v-show="item.editable"
+               @blur="disableEdit(item)" v-on:keyup.enter="disableEdit(item)"/>
             </div>
           </li>
         </ol>
@@ -66,6 +69,12 @@
 
       changeStatus: function(status){
         this.status = status
+      },
+      enableEdit(item){
+        item.editable = true;
+      },
+      disableEdit(item){
+        item.editable = false;
       }
     }
   }
