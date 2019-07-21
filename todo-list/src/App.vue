@@ -8,8 +8,8 @@
     <div id="todolist">
       <div>
         <ol v-show="list.length">
-          <li v-for="item in filterItem" :key="item.id">
-            <div>
+          <li v-for="(item,index) in filterItem" :key="item.id">
+            <div :class="index%2===0 ? 'odd' : 'even'">
               <input type="checkbox" v-model="item.isfinished"/>
               <label :class="item.isfinished ? 'finishedItem' : 'todoItem'"
                 v-show="!item.editable" @dblclick="enableEdit(item)">{{item.title}}</label>
@@ -22,11 +22,9 @@
     </div>
 
     <div>
-      <ButtonGroup>
-        <Button class="statusbtn" @click="changeStatus(1)">All</button>
-        <Button class="statusbtn" @click="changeStatus(2)">Active</Button>
-        <Button class="statusbtn" @click="changeStatus(3)">Complete</Button>
-      </ButtonGroup>
+      <Button class="statusbtn" @click="changeStatus(1)">All</button>
+      <Button class="statusbtn" @click="changeStatus(2)">Active</Button>
+      <Button class="statusbtn" @click="changeStatus(3)">Complete</Button>
     </div>
   </div>
 </template>

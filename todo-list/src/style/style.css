@@ -37,6 +37,16 @@
     text-align: left;
   }
 
+  div.odd{
+    text-align: left;
+    margin: 10px 50px 0 0;
+  }
+  div.even {
+    text-align: left;
+    background-color: rgb(204, 255, 255);
+    margin: 10px 50px 0 0;
+  }
+
   .finishedItem {
     color: #8f8f8f;
     font-size: 16px;
