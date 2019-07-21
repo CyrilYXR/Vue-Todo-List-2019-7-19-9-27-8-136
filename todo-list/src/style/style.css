@@ -36,3 +36,13 @@
   ol li {
     text-align: left;
   }
+
+  .finishedItem {
+    color: #8f8f8f;
+    font-size: 16px;
+    text-decoration: line-through;
+  }  
+
+  .todoItem {
+    font-size: 16px;
+  }

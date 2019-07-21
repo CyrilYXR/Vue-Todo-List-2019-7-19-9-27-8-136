@@ -10,8 +10,8 @@
         <ol v-show="list.length">
           <li v-for="item in list" :key="item.id">
             <div>
-              <input type="checkbox" />
-              <label>{{item.title}}</label>
+              <input type="checkbox" v-model="item.isfinished"/>
+              <label :class="item.isfinished ? 'finishedItem' : 'todoItem'">{{item.title}}</label>
             </div>
           </li>
         </ol>
@@ -33,7 +33,7 @@
         todo: '',
         list: [],
         listname: '',
-        value: 1
+        status: 1
       }
     },
 
