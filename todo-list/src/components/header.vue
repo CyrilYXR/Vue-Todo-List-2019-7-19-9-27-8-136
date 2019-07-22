@@ -12,12 +12,12 @@
   export default {
     name: 'Header',
     props:{
-      addTodo: Function
     },
     methods: {
-      // add: function (todo) {
-      //   this.addTodo(todo)
-      // },
+      addTodo: function (todo) {
+        this.$emit('addTodo', todo)
+        this.todo=''
+      },
     },
     data(){
       return{

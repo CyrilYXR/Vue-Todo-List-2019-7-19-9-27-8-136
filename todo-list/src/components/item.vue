@@ -1,5 +1,5 @@
 <template>
-  <div :class="index%2===0 ? 'odd' : 'even'">
+  <div>
     <input type="checkbox" v-model="item.isfinished" />
     <label :class="item.isfinished ? 'finishedItem' : 'todoItem'" v-show="!item.editable"
       @dblclick="enableEdit(item)">{{item.title}}</label>

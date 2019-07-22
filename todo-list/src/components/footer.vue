@@ -9,12 +9,11 @@
 
 <script>
 export default {
-    name:'footer',
-    props: {
-      changeStatus: Function
-    },
+    name:'Footer',
     methods:{
-      
+      changeStatus: function(status){
+        this.$emit('changeStatus', status)
+      }
     }
 }
 </script>

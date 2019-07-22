@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="todoapp">
-    <Header v-bind:addTodo="addTodo"></Header>
-    <Items :filterItems="filterItems"></Items>
-    <Footer :changeStatus="changeStatus"></Footer>
+    <Header @addTodo="addTodo"></Header>
+    <Items v-bind:filterItems="filterItems"></Items>
+    <Footer @changeStatus="changeStatus"></Footer>
   </div>
 </template>
 
@@ -17,6 +17,9 @@
       Footer
     },
     name: 'app',
+    created : function() {
+      this.filterItems = this.items
+    },
     data() {
       return {
         todo: '',
@@ -24,27 +27,17 @@
             isfinished: false,
             editable: false}],
         filterItems: this.items,
-        // status: 1
+        status: 1
       }
     },
-    // computed: {
-    //   filterItems: function(){
-    //     if(this.status === 2){
-    //       return this.items.filter(item => !item.isfinished)
-    //     } else if(this.status === 3){
-    //       return this.items.filter(item => item.isfinished)
-    //     }
-    //     return this.items
-    //   }
-    // },
+  
     methods: {
       addTodo: function(todo){
-        debugger
         if(todo === '') {
           return;
         }else{
           this.items.push({
-            title: this.todo,
+            title: todo,
             isfinished: false,
             editable: false
           })
@@ -59,14 +52,14 @@
         item.editable = false;
       },
       changeStatus: function(status){
-        // this.status = status
+        this.status = status
         if(this.status === 2){
-          return this.items.filter(item => !item.isfinished)
+          this.filterItems =  this.items.filter(item => !item.isfinished)
         } else if(this.status === 3){
-          return this.items.filter(item => item.isfinished)
+          this.filterItems = this.items.filter(item => item.isfinished)
+        } else {
+          this.filterItems =  this.items
         }
-        return this.items
-      
       }
     }
   }
