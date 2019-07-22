@@ -12,7 +12,7 @@ export default {
     name:'Footer',
     methods:{
       changeStatus: function(status){
-        this.$emit('changeStatus', status)
+        this.$store.commit("changeStatus", status)
       }
     }
 }

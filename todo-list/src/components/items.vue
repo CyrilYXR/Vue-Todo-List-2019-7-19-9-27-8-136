@@ -15,11 +15,15 @@
   
   export default {
     name: 'Items',
-    props:['filterItems'],
+    // props:['filterItems'],
     components: {
      Item
     },
-    
+    computed: {
+      filterItems(){
+        return this.$store.getters.filterItems
+      }
+    },
   }
 
 </script>
