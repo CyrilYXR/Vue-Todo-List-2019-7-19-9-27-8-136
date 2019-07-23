@@ -9,8 +9,7 @@ export default {
     } 
     axios.post('http://localhost:8084/todos', {
       "title": todo,
-      "isfinished": 0,
-      "editable": 0
+      "isfinished": 0
     }).then(function (response) {
       commit('addTodo', response.data);
     }).catch(function (error) {
