@@ -13,10 +13,10 @@
     props: ['item'],
     methods: {
       enableEdit(item){
-        item.editable = true;
+        item.editable = 1;
       },
       disableEdit(item){
-        item.editable = false;
+        item.editable = 0;
       }
     }
   }

@@ -18,6 +18,9 @@
     },
     name: 'app',
     methods: {
+    },
+    created(){
+      this.$store.dispatch('loadItems');
     }
   }
 

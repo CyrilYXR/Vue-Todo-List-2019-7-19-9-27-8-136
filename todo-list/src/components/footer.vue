@@ -12,7 +12,8 @@ export default {
     name:'Footer',
     methods:{
       changeStatus: function(status){
-        this.$store.commit("changeStatus", status)
+        // this.$store.commit("changeStatus", status)
+        this.$store.dispatch('changeStatus', status);
       }
     }
 }

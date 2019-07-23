@@ -5,13 +5,17 @@ export default {
     } else {
       state.items.push({
         title: todo,
-        isfinished: false,
-        editable: false
+        isfinished: 0,
+        editable: 0
       })
     }
   },
 
   changeStatus(state, status) {
     state.status = status
+  },
+
+  loadItems(state, items){
+      state.items = items;
   }
 }

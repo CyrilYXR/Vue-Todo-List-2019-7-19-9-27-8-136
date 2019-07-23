@@ -16,7 +16,8 @@
     methods: {
       addTodo: function (todo) {
         // this.$emit('addTodo', todo)
-        this.$store.commit("addTodo", todo)
+        // this.$store.commit("addTodo", todo)
+        this.$store.dispatch('addTodo', todo);
         this.todo=''
       },
     },
