@@ -6,14 +6,20 @@ export default {
     commit
   }, todo) {
     if (todo === '') {
-        return;
+      alert("输入不能为空!");
+      return;
     } 
     axios.post('http://localhost:8084/todos', {
       "title": todo,
       "isfinished": 0
     }).then(function (response) {
+      // if(response.status === 400){
+      //   alert("Input is existed!")
+      //   return;
+      // }
       commit('addTodo', response.data);
     }).catch(function (error) {
+      alert("Input is existed!")
       console.log(error);
     });
 
@@ -41,9 +47,11 @@ export default {
         data: item
     })
     .then(function(response){
-        
+      
     }).catch(function (error) {
       console.log(error);
+      alert("Input is existed!")
+      window.location.reload()
     })
   },
 

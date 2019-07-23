@@ -3,7 +3,7 @@
     <input type="checkbox" v-model="item.isfinished" v-on:click="updateItem(item)"/>
     <label :class="item.isfinished ? 'finishedItem' : 'todoItem'" v-show="!editable"
       @dblclick="editable=1">{{item.title}}</label>
-    <input type="text" v-model="item.title" v-show="editable" @blur="editable=0,updateItem(item)"
+    <input type="text" v-model="item.title" v-show="editable"
       v-on:keyup.enter="editable=0, updateItem(item)" />
     <input class="deletebtn" type="button" value="X" @click="deleteItem(item)"/>
   </div>
@@ -20,9 +20,9 @@
     methods: {
       updateItem(item){
         if(item.isfinished){
-          item.isfinished = 0
-        } else {
           item.isfinished = 1
+        } else {
+          item.isfinished = 0
         }
         
         this.$store.dispatch('updateItem', item)
