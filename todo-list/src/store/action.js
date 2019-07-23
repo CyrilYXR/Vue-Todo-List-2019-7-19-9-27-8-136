@@ -1,4 +1,5 @@
 import axios from 'axios'
+import getter from './getter';
 
 export default {
   addTodo({
@@ -13,7 +14,7 @@ export default {
     }).then(function (response) {
       commit('addTodo', response.data);
     }).catch(function (error) {
-
+      console.log(error);
     });
 
   },
@@ -28,7 +29,9 @@ export default {
     axios.get('http://localhost:8084/todos')
         .then(function(response) {
             commit('loadItems', response.data)
-        })
+        }).catch(function (error) {
+          console.log(error);
+        });
   },
 
   updateItem({commit}, item){
@@ -39,6 +42,18 @@ export default {
     })
     .then(function(response){
         
+    }).catch(function (error) {
+      console.log(error);
     })
+  },
+
+  deleteItem({commit}, id){
+    axios.delete('http://localhost:8084/todos/'+ id)
+      .then(function(response){
+        // dispatch(loadItems(commit));
+      }).catch(function (error) {
+        console.log(error);
+      })
+    window.location.reload()
   }
 }

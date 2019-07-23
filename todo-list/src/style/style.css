@@ -1,24 +1,26 @@
-.todoapp{
-    background: #fff;
-    margin: 100px 25% 0 25%;
-    border-style: solid;
-    border-color: cyan;
-    border-width: 20px 30px;
-    border-radius:10px;
-    padding:40px 25px;
-    position: relative;
-    text-align: center;
-  }
-  .todoInput{
-    width: 400px;
+.todoapp {
+  background: #fff;
+  margin: 100px 25% 0 25%;
+  border-style: solid;
+  border-color: cyan;
+  border-width: 20px 30px;
+  border-radius: 10px;
+  padding: 40px 25px;
+  position: relative;
+  text-align: center;
+}
+
+.todoInput {
+  width: 400px;
   height: 24px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 4px 7px;
-  }
-  .addButton{
-    display: inline-block;
+}
+
+.addButton {
+  display: inline-block;
   background-color: #fc999b;
   color: #ffffff;
   border-radius: 7px;
@@ -27,50 +29,65 @@
   margin-left: 4px;
   margin-top: 2px;
   cursor: pointer;
-  }
-  h1 {
-    font-weight: bolder;
-    text-align: left;
-  }
-  h3 {
-    font-style: italic; 
-    text-align: left;
-  }
+}
 
-  ol li {
-    text-align: left;
-  }
+h1 {
+  font-weight: bolder;
+  text-align: left;
+}
 
-  div.odd{
-    text-align: left;
-    margin: 0;
-    border: 40px;
-    height: 25px;
-  }
-  div.even {
-    text-align: left;
-    background-color: rgb(204, 255, 255);
-    margin: 0;
-    border: 40px;
-    height: 25px;
-  }
+h3 {
+  font-style: italic;
+  text-align: left;
+}
 
-  .finishedItem {
-    color: #8f8f8f;
-    font-size: 16px;
-    text-decoration: line-through;
-  }  
+ol li {
+  text-align: left;
+}
 
-  .todoItem {
-    font-size: 16px;
-  }
+div.odd {
+  text-align: left;
+  margin: 0 10% 0 0;
+  border: 40px;
+  height: 25px;
+}
 
-  .statusbtn{
-    background-color: #ffffff;
-    color: #fc999b;
-    margin: 3px;
-    padding: 3px 7px;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 3px;
-  }
+div.even {
+  text-align: left;
+  background-color: rgb(204, 255, 255);
+  margin: 0 10% 0 0;
+  border: 40px;
+  height: 25px;
+}
+
+.finishedItem {
+  color: #8f8f8f;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+
+.todoItem {
+  font-size: 16px;
+}
+
+.statusbtn {
+  background-color: #ffffff;
+  color: #fc999b;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.deletebtn {
+  width: 20px;
+  height: 25px;
+  font-size: 14px;
+  color: #e22727;
+  background: none;
+  border: none;
+  /* position: relative; */
+  float: right;
+  /* display: none; */
+}

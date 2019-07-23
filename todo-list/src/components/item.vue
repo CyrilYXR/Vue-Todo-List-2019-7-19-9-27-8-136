@@ -5,7 +5,7 @@
       @dblclick="editable=1">{{item.title}}</label>
     <input type="text" v-model="item.title" v-show="editable" @blur="editable=0,updateItem(item)"
       v-on:keyup.enter="editable=0, updateItem(item)" />
-    
+    <input class="deletebtn" type="button" value="X" @click="deleteItem(item)"/>
   </div>
 </template>
 <script>
@@ -26,6 +26,10 @@
         }
         
         this.$store.dispatch('updateItem', item)
+      },
+      deleteItem(item){
+        this.$store.dispatch('deleteItem', item.id)
+        window.reload
       }
     },
   }
