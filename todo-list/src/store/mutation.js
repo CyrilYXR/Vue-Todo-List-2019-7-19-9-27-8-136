@@ -1,13 +1,9 @@
 export default {
   addTodo(state, todo) {
-    if (todo === '') {
+    if (todo.title === '') {
       return;
     } else {
-      state.items.push({
-        title: todo,
-        isfinished: 0,
-        editable: 0
-      })
+      state.items.push(todo)
     }
   },
 
