@@ -19,7 +19,7 @@ export default {
       // }
       commit('addTodo', response.data);
     }).catch(function (error) {
-      alert("Input is existed!")
+      alert(error.response.data)
       console.log(error);
     });
 
@@ -50,7 +50,7 @@ export default {
       
     }).catch(function (error) {
       console.log(error);
-      alert("Input is existed!")
+      alert(error.response.data)
       window.location.reload()
     })
   },
