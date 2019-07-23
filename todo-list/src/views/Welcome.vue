@@ -1,7 +1,7 @@
 <template>
-  <div style="">
-    <input type="text" id="name" v-model="name">
-    <button @click="begin()">开始使用</button>
+  <div class="welcome">
+    <input class="todoInput" type="text" id="name" v-model="name">
+    <button class="commonButton" @click="begin()">开始使用</button>
   </div>
 </template>
 <script>
@@ -25,3 +25,12 @@
   }
 
 </script>
+
+<style>
+  .welcome{
+    display: flex;
+    justify-content: center;
+    margin: 20% 0;
+  }
+</style>
+

@@ -28,9 +28,21 @@
   margin-top: 2px;
   cursor: pointer;
   }
+  .commonButton{
+    display: inline-block;
+  background-color: #b2b3cc;
+  color: #ffffff;
+  border-radius: 7px;
+  text-align: center;
+  padding: 5px 15px;
+  margin-left: 4px;
+  margin-top: 2px;
+  cursor: pointer;
+  }
   h1 {
     font-weight: bolder;
     text-align: left;
+    margin-top: 0;
   }
   h3 {
     font-style: italic; 
@@ -73,4 +85,35 @@
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
+  }
+
+  .deletebtn {
+    width: 20px;
+    height: 25px;
+    font-size: 14px;
+    color: #e22727;
+    background: none;
+    border: none;
+    /* position: relative; */
+    float: right;
+    /* display: none; */
+  }
+
+  .home-head{
+    /* margin: 2%; */
+    height: 50px;
+    background-color: rgb(174, 152, 226);
+  }
+
+  .home-left{
+    float:left;
+    width:250px;
+    height: 600px;
+    background-color: rgb(233, 135, 135);
+  }
+
+  .home-right{
+    margin-left:250px;
+    background-color: rgb(194, 216, 216);
+    height: 600px;
   }

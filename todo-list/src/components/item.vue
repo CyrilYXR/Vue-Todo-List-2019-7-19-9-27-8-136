@@ -1,23 +1,23 @@
 <template>
   <div>
     <input type="checkbox" v-model="item.isfinished" v-on:click="updateItem(item)"/>
-    <label :class="item.isfinished ? 'finishedItem' : 'todoItem'" v-show="!item.editable"
-      @dblclick="enableEdit(item)">{{item.title}}</label>
-    <input type="text" v-model="item.title" v-show="item.editable" @blur="disableEdit(item),updateItem(item)"
-      v-on:keyup.enter="disableEdit(item), updateItem(item)" />
+    <label :class="item.isfinished ? 'finishedItem' : 'todoItem'" v-show="!editable"
+      @dblclick="editable=1">{{item.title}}</label>
+    <input type="text" v-model="item.title" v-show="editable"
+      v-on:keyup.enter="editable=0, updateItem(item)" />
+    <input class="deletebtn" type="button" value="X" @click="deleteItem(item)"/>
   </div>
 </template>
 <script>
   export default {
     name: 'item',
     props: ['item'],
+    data(){
+      return{
+        editable: 0
+      }
+    },
     methods: {
-      enableEdit(item){
-        item.editable = 1;
-      },
-      disableEdit(item){
-        item.editable = 0;
-      },
       updateItem(item){
         if(item.isfinished){
           item.isfinished = 0
@@ -26,8 +26,11 @@
         }
         
         this.$store.dispatch('updateItem', item)
+      },
+      deleteItem(item){
+        this.$store.dispatch('deleteItem', item.id)
+        window.reload
       }
     },
   }
-
 </script>

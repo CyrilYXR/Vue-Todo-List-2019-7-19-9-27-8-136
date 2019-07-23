@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label>{{name}}</label>
+        <label>username: {{name}}</label>
     </div>
 </template>
 <script>

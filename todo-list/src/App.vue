@@ -27,6 +27,6 @@
 
 </script>
 
-<style>
-
+<style> 
+  @import './style/style.css';
 </style>

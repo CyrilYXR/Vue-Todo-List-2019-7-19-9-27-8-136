@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="todoapp">
     <Header ></Header>
     <Items ></Items>
     <Footer ></Footer>
@@ -17,7 +17,7 @@
       Items,
       Footer
     },
-    name: 'app',
+    name: 'Todoapp',
     methods: {
     },
     created(){
