@@ -1,29 +1,11 @@
 <template>
-  <!-- <div>
-    <div class="home-head">
-      <router-link to='/welcome' style="float: left; margin:10px 0 10px 50px;">返回</router-link>
-      <label style="float: right; margin:10px 50px 10px 0;">{{name}}</label>
-    </div>
-    <div class="home-left">
-      <div>
-        <router-link :to="{name: 'todo'}" replace style="margin:25%">todo</router-link>
-      </div>
-      <div>
-        <router-link :to="{name: 'profile'}" replace style="margin:25%">profile</router-link>
-      </div>
-    </div>
-    <div class="home-right">
-      <router-view style="text-align: center;"></router-view>
-
-    </div>
-  </div>-->
   <a-layout id="components-layout-demo-custom-trigger">
     <a-layout-sider :trigger="null" collapsible v-model="collapsed">
       <div class="logo" />
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']" >
+      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
         <a-menu-item key="1" @click="profile()">
           <a-icon type="user" />
-          <span >profile</span>
+          <span>profile</span>
         </a-menu-item>
         <a-menu-item key="2" @click="todolist()">
           <a-icon type="video-camera" />
@@ -46,7 +28,13 @@
       <a-layout-content
         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
       >
-        <router-view></router-view>
+        <div>
+          <a-row type="flex" justify="center">
+            <a-col :span="14">
+              <router-view></router-view>
+            </a-col>
+          </a-row>
+        </div>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -70,12 +58,12 @@ export default {
     profile() {
       this.$router.push({
         name: "profile"
-      })
+      });
     },
     todolist() {
       this.$router.push({
         name: "todo"
-      })
+      });
     }
   }
 };

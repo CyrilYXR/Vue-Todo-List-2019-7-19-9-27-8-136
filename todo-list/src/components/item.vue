@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="checkbox" v-model="item.isfinished" v-on:click="updateItem(item)"/>
+    <input type="checkbox" v-model="finished" v-on:click="updateItem(item)"/>
     <label :class="item.isfinished ? 'finishedItem' : 'todoItem'" v-show="!editable"
       @dblclick="editable=1">{{item.title}}</label>
     <input type="text" v-model="item.title" v-show="editable"
@@ -14,15 +14,16 @@
     props: ['item'],
     data(){
       return{
-        editable: 0
+        editable: 0,
+        finished: this.item.isfinished
       }
     },
     methods: {
       updateItem(item){
-        if(this.item.isfinished){
-          this.item.isfinished = 1
+        if(this.finished){
+          item.isfinished = 0
         } else {
-          this.item.isfinished = 0
+          item.isfinished = 1
         }
         this.$store.dispatch('updateItem', item)
       },

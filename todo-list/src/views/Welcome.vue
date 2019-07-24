@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
 
-    <a-input class="todoInput" type="text" id="name" v-model="name" />
+    <a-input type="text" id="name" v-model="name" />
     <!-- <button class="commonButton" @click="begin()">开始使用</button> -->
     <a-button style="Primary" @click="begin()">开始使用</a-button>
   </div>
