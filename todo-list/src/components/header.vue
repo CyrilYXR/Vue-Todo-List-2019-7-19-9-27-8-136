@@ -5,10 +5,16 @@
     <div>
       <!-- <input type="text" v-model="todo" class="todoInput" /> -->
       <a-input type="text" id="name" class="todoInput" v-model="todo" />
-      <a-button class="addButton" style="Primary" @click="addTodo(todo)">Add</a-button>
+      <a-button class="addButton" style="Primary" @click="showModal">Add</a-button>
+      <a-modal
+        title="Title"
+        :visible="visible"
+        @ok="addTodo(todo)"
+        @cancel="handleCancel"
+      >
+        <p>add ' {{todo}} ' to your todo list?</p>
+      </a-modal>
     </div>
-    <!-- <a-input type="text" id="name" v-model="name" /> -->
-    <!-- <button class="addButton" v-on:click="addTodo(todo)">Add</button> -->
   </div>
 </template>
 
@@ -22,11 +28,19 @@ export default {
       // this.$store.commit("addTodo", todo)
       this.$store.dispatch("addTodo", todo);
       this.todo = "";
-    }
+      this.visible = false;
+    },
+    showModal() {
+      this.visible = true
+    },
+    handleCancel() {
+      this.visible = false
+    },
   },
   data() {
     return {
-      todo: ""
+      todo: "",
+      visible: false,
     };
   }
 };
