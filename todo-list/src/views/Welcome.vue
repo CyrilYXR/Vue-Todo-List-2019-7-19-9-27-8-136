@@ -1,7 +1,9 @@
 <template>
   <div class="welcome">
-    <input class="todoInput" type="text" id="name" v-model="name">
-    <button class="commonButton" @click="begin()">开始使用</button>
+
+    <a-input class="todoInput" type="text" id="name" v-model="name" />
+    <!-- <button class="commonButton" @click="begin()">开始使用</button> -->
+    <a-button style="Primary" @click="begin()">开始使用</a-button>
   </div>
 </template>
 <script>

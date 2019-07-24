@@ -8,14 +8,24 @@ import Home from './views/home.vue'
 import Todoapp from './components/todoapp.vue'
 import Profile from './views/profile.vue'
 
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+
 Vue.use(VueRouter)
+Vue.use(Antd)
 
 const routes = [{
     path: '/',
     component: Welcome
   },
   {
+    path: '/todo',
+    name: 'single-todo',
+    component: Todoapp
+  },
+  {
     path: '/welcome',
+    name: 'welcome',
     component: Welcome
   },
   {
